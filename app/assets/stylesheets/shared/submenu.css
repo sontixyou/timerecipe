@@ -1,0 +1,18 @@
+.sub-menu{
+  
+}
+
+.menu-view{
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0px 5vw;
+}
+
+.menu-name{
+  width: 20vw;
+  text-align: center;
+  border-style: solid;
+  background-color: orange;
+}
