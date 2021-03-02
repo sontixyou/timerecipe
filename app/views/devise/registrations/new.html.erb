@@ -18,6 +18,18 @@
     
     <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) レシピ太郎", maxlength:"40" %>
   </div>
+  <div class="img-upload">
+      <div class="weight-bold-text">
+        ユーザー画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"user-image" %>
+      </div>
+  </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">メールアドレス</label>
@@ -56,5 +68,6 @@
   </div>
   <p class='register-info'>本人情報の登録について</p>
 </div>
+<div id="image-list"></div>
 <% end %>
 <%= render "shared/second-footer"%>
