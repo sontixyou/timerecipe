@@ -22,14 +22,14 @@
 
 .search-form {
   width: 60vw;
-  height: 5vh;
+  height: 4vh;
   display: flex;
   /* margin-bottom: 5px; */
 }
 
 .search-form>.input-box {
   width: 100%;
-  height: 5vh;
+  height: 4vh;
   padding-left: 10px;
 }
 
@@ -79,7 +79,7 @@
 }
 
 
-.user-nickname {
+.user-photo {
   text-decoration: none;
   margin-right: 3vw;
   color: #333333;
@@ -87,10 +87,21 @@
 }
 
 
-.logout {
+.post-btn {
+  display: inline-block;
+  padding: 0.5em 1em;
   text-decoration: none;
-  color: #333333;
+  background: #e2ae45;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 2px #000000;
+  border-radius: 3px;
 }
+/* .post-btn:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+} */
 
 .login {
   text-decoration: none;
@@ -102,4 +113,16 @@
 .sign-up {
   text-decoration: none;
   color: #333333;
+}
+
+.show-lists{
+  width: 200px;
+  position: absolute;
+  right: 370px;
+  top: 70px;
+  background-color: #ffffff;
+}
+
+.hidden{
+  display: none;
 }
