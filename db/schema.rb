@@ -35,8 +35,13 @@ ActiveRecord::Schema.define(version: 2021_02_23_054517) do
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
-    t.integer "time"
-    t.text "how_to_cook"
+    t.text "detail"
+    t.text "recipe_info1"
+    t.text "recipe_info2"
+    t.text "recipe_info3"
+    t.text "recipe_info4"
+    t.text "recipe_info5"
+    t.integer "recipe_time_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

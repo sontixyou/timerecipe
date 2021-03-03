@@ -1,0 +1,125 @@
+<%= render "shared/second-header" %>
+<div class="recipe-contents">
+ <div class="recipe-main">
+    <h2 class="recipe-title">商品の情報を入力</h2>
+    <%= form_with(model: @recipe, id: 'new_recipe', local: true) do |f| %>
+    <%= render 'shared/error_messages', model: f.object %> 
+    <%# 出品画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        出品画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, name: 'image', id:"recipe-image" %>
+      </div>
+    </div>
+    <div id="image-list"></div>
+    <%# /出品画像 %>
+    <%# 商品名と商品説明 %>
+    <div class="new-recipe">
+      <div class="weight-bold-text">
+        料理名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"recipe-text", id:"recipe-title", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
+      <%# /レシピ名 %>
+      <%# レシピ説明 %>
+      <div class="recipe-explain">
+        <div class="weight-bold-text">
+          料理の説明
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :detail, class:"recipe-text", id:"recipe-info1", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      </div>
+      <%# /レシピ説明 %>
+    </div>
+    
+
+    <%# レシピの詳細 %>
+    <div class="recipe-detail">
+      <div class="weight-bold-text">
+          料理の手順１
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe_info1, class:"recipe-text", id:"recipe-info1", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    <div class="items-detail">
+      <div class="weight-bold-text">
+          料理の手順2
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe_info2, class:"recipe-text", id:"recipe-info2", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    <div class="items-detail">
+      <div class="weight-bold-text">
+          料理の手順3
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe_info3, class:"recipe-text", id:"recipe-info3", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    <div class="items-detail">
+      <div class="weight-bold-text">
+          料理の手順4
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe_info4, class:"recipe-text", id:"recipe-info4", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    <div class="items-detail">
+      <div class="weight-bold-text">
+          料理の手順5
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :recipe_info5, class:"recipe-text", id:"recipe-info5", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+    </div>
+    
+    
+    <%# /レシピの詳細 %>
+
+    <%# 料理時間について %>
+    <div class="items-detail">
+      <div class="form">
+        <div class="weight-bold-text">
+          料理時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:recipe_time_id, RecipeTime.all, :id, :name, {}, {class:"select-box", id:"recipe-time-category"}) %>
+      </div>
+    </div>
+    <%# /料理時間について %>
+
+    
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">禁止されている出品、</a>
+        <a href="#">行為</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        <a href="#">偽ブランドの販売</a>
+        は犯罪であり処罰される可能性があります。
+      </p>
+      <p class="sentence">
+        また、出品をもちまして
+        <a href="#">加盟店規約</a>
+        に同意したことになります。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="post-btn-contents">
+      <%= f.submit "レシピ投稿" ,class:"post-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+  
+</div>  
+<%= render "shared/second-footer" %>
