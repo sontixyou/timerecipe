@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Item.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to root_path
     else
@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:item).permit(:title, :detail, :recipe_info1, :recipe_info2, 
+    params.require(:recipe).permit(:title, :detail, :recipe_info1, :recipe_info2, 
                                  :recipe_info3, :recipe_info4, :recipe_info5, :recipe_time_id, :image).merge(user_id: current_user.id)
   end
 
@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
   # end
 
   # def move_to_index
-  #   if current_user.id == @item.user_id
+  #   if current_user.id == @recipe.user_id
   #     redirect_to root_path
   #   end
   # end
