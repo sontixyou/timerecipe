@@ -14,7 +14,7 @@
         <p>
           クリックしてファイルをアップロード
         </p>
-        <%= f.file_field :image, name: 'image', id:"recipe-image" %>
+        <%= f.file_field :image, id:"recipe-image" %>
       </div>
     </div>
     <div id="image-list"></div>
@@ -40,6 +40,13 @@
     
 
     <%# レシピの詳細 %>
+    <div class="recipe-detail">
+      <div class="weight-bold-text">
+          具材
+          <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :item, class:"recipe-text", id:"recipe-item", placeholder:"具材一覧" ,rows:"15" %>
+    </div>
     <div class="recipe-detail">
       <div class="weight-bold-text">
           料理の手順１
