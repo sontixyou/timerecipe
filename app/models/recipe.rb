@@ -4,7 +4,12 @@ class Recipe < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :recipe_time
 
-  validates :image_attached
+  validate :image_attached
+  with_options length: { maximum: 140,
+    too_long: '最大%{count}文字まで使えます' } do
+    validates :recipe_info4
+    validates :recipe_info5
+  end
   with_options presence: true do
     validates :title, length: { maximum: 40,
       too_long: '最大%{count}文字まで使えます' }
@@ -14,8 +19,6 @@ class Recipe < ApplicationRecord
       validates :recipe_info1
       validates :recipe_info2
       validates :recipe_info3
-      validates :recipe_info4
-      validates :recipe_info5
     end
     validates :item
     validates :recipe_time, numericality: { other_than: 1 }
