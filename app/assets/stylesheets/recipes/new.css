@@ -1,7 +1,7 @@
 /* border-bottom: 1px solid #eee; */
 
 
-.items-sell-contents {
+.recipe-contents {
   background-color: #f5f5f5;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
@@ -11,19 +11,14 @@
   min-width: 500px;
 }
 
-.items-sell-header {
-  padding: 5vh 0;
-  text-align: center;
-}
-
-.items-sell-main {
+.recipe-main {
   background-color: #FFF;
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
 }
 
-.items-sell-title {
+.recipe-title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
@@ -53,23 +48,6 @@
   padding-left: 20px;
 }
 
-.question {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background: #0099e8;
-  color: #FFF;
-  font-size: 13px;
-  text-align: center;
-  line-height: 20px;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-.question-text {
-  display: flex;
-}
-
 /* /共通 */
 
 /* 出品画像 */
@@ -92,11 +70,11 @@
 /* /出品画像 */
 
 /* 商品名と商品説明 */
-.new-items {
+.new-recipe {
   padding: 2vh 0;
 }
 
-.items-text {
+.recipe-text {
   width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
@@ -105,20 +83,20 @@
   resize: none;
 }
 
-.items-explain {
+.recipe-explain {
   margin-top: 2vh;
 }
 
 /* /商品名と商品説明 */
 
 /* 商品の詳細など */
-.items-detail {
+.recipe-detail {
   display: flex;
   justify-content: space-between;
   padding: 2vh 0;
 }
 
-.items-detail>.form {
+.recipe-detail>.form {
   width: 300px;
   padding: 2vh 0;
 }
@@ -128,40 +106,6 @@
 }
 
 /* /商品の詳細など */
-
-/* 販売価格 */
-.sell-price {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.price-content {
-  width: 300px;
-  border-bottom: 1px solid #ccc;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.price-text {
-  /* min-width: 170px; */
-  display: flex;
-  align-items: center;
-}
-
-.sell-yen {
-  font-size: 18px;
-}
-
-.price-input {
-  height: 30px;
-  text-align: right;
-  padding-right: 10px;
-}
-
-/* /販売価格 */
 
 /* 注意書き */
 .caution {
@@ -176,12 +120,12 @@
 /* /注意書き */
 
 /* 下部ボタン */
-.sell-btn-contents {
+.post-btn-contents {
   width: 100%;
   text-align: center;
 }
 
-.sell-btn {
+.post-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
@@ -197,33 +141,4 @@
   color: #fff;
   padding: 15px 35%;
   text-decoration: none;
-}
-
-/* /下部ボタン */
-
-.items-sell-footer {
-  background-color: #f5f5f5;
-  width: 60vw;
-  padding: 3ch 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.items-sell-footer>.menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 3vh 0;
-}
-
-.menu>li>a {
-  color: black;
-  font-size: 12px;
-  margin: 2vw;
-}
-
-.inc {
-  font-size: 13px;
 }
