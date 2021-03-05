@@ -5,5 +5,8 @@ class RecipeTime < ActiveHash::Base
     {id: 3, name:'20分'},
     {id: 4, name:'30分'}
   ]
+
+  include ActiveHash::Associations
+  has_many :recipes
   
 end

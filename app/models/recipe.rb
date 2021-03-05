@@ -8,6 +8,7 @@ class Recipe < ApplicationRecord
   with_options length: { maximum: 140,
     too_long: '最大%{count}文字まで使えます' } do
     validates :recipe_info4
+    
     validates :recipe_info5
   end
   with_options presence: true do
@@ -21,7 +22,7 @@ class Recipe < ApplicationRecord
       validates :recipe_info3
     end
     validates :item
-    validates :recipe_time, numericality: { other_than: 1 }
+    validates :recipe_time_id, numericality: { other_than: 1 }
   end
 
   def image_attached
