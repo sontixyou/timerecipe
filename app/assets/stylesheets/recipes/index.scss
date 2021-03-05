@@ -10,18 +10,25 @@
 .item{
   margin: 0 auto;
 }
-.item-photo{
-  width:25vw;
-  height: 25vw;
-  background-color: blue;
+// .item-photo{
+//   width:25vw;
+//   height: 25vw;
+//   background-color: blue;
+// }
+
+.image{
+  height: 400px;
+  width: 400px;
 }
 
 .recipe-title{
-
+  text-align: center;
+  background-color: royalblue;
 }
 
 .recipe-owner{
   text-align: right;
+  background-color: red;
+  display: flex;
+  
 }
-
-/* 画面上部の「人生を変えるフリマアプリ」帯部分 */

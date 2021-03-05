@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   # before_action :move_to_index, only: [:edit, :destroy, :update]
 
   def index
+    @recipes = Recipe.all
   end
 
   def new

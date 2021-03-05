@@ -1,7 +1,7 @@
 <%= render "shared/second-header" %>
 <div class="recipe-contents">
  <div class="recipe-main">
-    <h2 class="recipe-title">商品の情報を入力</h2>
+    <h2 class="recipe-info">商品の情報を入力</h2>
     <%= form_with(model: @recipe, id: 'new_recipe', local: true) do |f| %>
     <%= render 'shared/error_messages', model: f.object %> 
     <%# 出品画像 %>
@@ -72,13 +72,13 @@
       <div class="weight-bold-text">
           料理の手順4
       </div>
-      <%= f.text_area :recipe_info4, class:"recipe-text", id:"recipe-info4", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      <%= f.text_area :recipe_info4, class:"recipe-text", id:"recipe-info4", placeholder:"料理の説明（140文字まで）" ,rows:"7" ,maxlength:"140" %>
     </div>
     <div class="items-detail">
       <div class="weight-bold-text">
           料理の手順5
       </div>
-      <%= f.text_area :recipe_info5, class:"recipe-text", id:"recipe-info5", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      <%= f.text_area :recipe_info5, class:"recipe-text", id:"recipe-info5", placeholder:"料理の説明（140文字まで）" ,rows:"7" ,maxlength:"140" %>
     </div>
     
     

@@ -1,0 +1,13 @@
+  <%= link_to "#", method: :get do %>
+    <div class="item">
+      <div class="item-photo">
+        <%= image_tag recipe.image, class: "image" %>
+      </div>
+      <div class="recipe-title">
+        <%= recipe.title %>
+      </div>
+      <div class="recipe-owner">
+        <div>投稿者:</div><%= recipe.user.nickname %>
+      </div>
+    </div>
+  <% end %>
