@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_053332) do
+ActiveRecord::Schema.define(version: 2021_03_06_110510) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,16 +33,25 @@ ActiveRecord::Schema.define(version: 2021_02_23_053332) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text"
+    t.integer "user_id"
+    t.integer "recipe_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.text "detail"
-    t.text "item"
-    t.text "recipe_info1"
-    t.text "recipe_info2"
-    t.text "recipe_info3"
+    t.string "title", null: false
+    t.text "detail", null: false
+    t.text "item", null: false
+    t.text "recipe_info1", null: false
+    t.text "recipe_info2", null: false
+    t.text "recipe_info3", null: false
     t.text "recipe_info4"
     t.text "recipe_info5"
-    t.integer "recipe_time_id"
+    t.integer "recipe_time_id", null: false
+    t.integer "category_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -50,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_053332) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname"
+    t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

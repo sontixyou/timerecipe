@@ -9,7 +9,7 @@
       投稿者:<%= @recipe.user.nickname %>
     </div>
   </div>
-  <%# レシピ写真 %>
+  <%# /レシピ写真 %>
 
   <%# レシピ中部 %>
   <div class="recipe-middle">
@@ -28,9 +28,9 @@
           </div>
         </div>
         <div class="recipe-category">
-          category
+          Category
           <div class="recipe-category-value">
-            中華・イタリアン
+            <%= @recipe.category.name %>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
       <div>SNS連携　LINE Twitter</div>
     </div>
   </div>
-  <%# レシピ中部 %>
+  <%# /レシピ中部 %>
 
   <%# レシピ下部 %>
   <div class="recipe-bottom">
@@ -90,28 +90,30 @@
       </div>
     </div>
   </div>
-  <%# レシピ下部 %>
+  <%# /レシピ下部 %>
 </div>
 
-<%# レシピの概要 %>
-<div class="recipe-show">
-  <%# /レシピの概要 %>
-
+  <%# レシピへのコメント %>
   <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
+    <% if user_signed_in? %>
+      <%= form_with(model: [@recipe, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
   </div>
-  
+  <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
+  <%# /レシピへのコメント %>
 </div>
 
 

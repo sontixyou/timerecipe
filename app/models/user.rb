@@ -1,11 +1,16 @@
 class User < ApplicationRecord
+  ## Association
   has_many :recipes
+  has_many :comments
   # has_one_attached :image
   
+  ##Validation
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
   with_options presence: true do
     validates :nickname
     # validates :image_attached

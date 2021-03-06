@@ -22,6 +22,8 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @recipe.comments.includes(:user)
   end
   
   def edit
@@ -43,7 +45,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :detail, :item, :recipe_info1, :recipe_info2, 
-                                 :recipe_info3, :recipe_info4, :recipe_info5, :recipe_time_id, :image).merge(user_id: current_user.id)
+                                 :recipe_info3, :recipe_info4, :recipe_info5, :recipe_time_id, :category_id, :image).merge(user_id: current_user.id)
   end
 
   def set_recipe
