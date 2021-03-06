@@ -1,10 +1,8 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_recipe, only: [:show, :edit, :update]
-  before_action :move_to_index, only: [:edit, :update]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
   # before_action :authenticate_user!, except: [:index, :show, :search]
-  # before_action :set_item, only: [:edit, :show, :update, :destroy]
-  # before_action :move_to_index, only: [:edit, :destroy, :update]
 
   def index
     @recipes = Recipe.all
@@ -35,6 +33,11 @@ class RecipesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @recipe.destroy
+    redirect_to root_path
   end
   private
 

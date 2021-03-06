@@ -44,7 +44,7 @@
             <%= link_to "レシピの編集", edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
           </div>
           <div class="delete-btn">
-            <%= link_to "レシピ削除",  method: :delete, class:"recipe-destroy" %>
+            <%= link_to "レシピ削除",  recipe_path(@recipe.id), method: :delete, class:"recipe-destroy" %>
           </div>
         <% end %>
       </div>
