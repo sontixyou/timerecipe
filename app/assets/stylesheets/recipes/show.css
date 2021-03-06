@@ -19,8 +19,9 @@ html {
 }
 .recipe-owner{
   font-size: 0.5em;
-  text-align: center;
+  align-content: center;
 }
+/*レシピ中部*/
 .recipe-middle{
   background-color: blue;
   display: flex;
@@ -29,12 +30,53 @@ html {
   width: 100vw;
   /* background-color: indianred; */
 }
-
+.image{
+  width: 30vw;
+  height: 30vw;
+}
 .recipe-middle-right{
-  width: 50vw;
-  /* background-color: green; */
+  width: 100vw;
+  background-color: green;
   
 }
+
+
+.recipe-time-category{
+  display: flex;
+}
+.recipe-time{
+  display: column;
+  margin: 10px
+}
+
+.recipe-category{
+  display: column;
+  margin: 10px
+}
+/*レシピ中部*/
+
+/*レシピ下部*/
+.recipe-bottom{
+  display: flex;
+  height: 30vh;
+  
+}
+.recipe-bottom-left{
+  width: 50vw;
+  display: table-column;
+  background-color: indigo;
+}
+
+.recipe-bottom-left-title{
+
+}
+.recipe-bottom-right{
+  width: 50vw;
+  display: table-column;
+  background-color: rgb(0, 130, 113);
+}
+/*レシピ下部*/
+
 .recipe-show {
   background-color: #f8f8f8;
   width: 100vw;

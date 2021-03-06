@@ -1,40 +1,92 @@
 <%= render "shared/header" %>
 <div class="recipe-content">
+  <%# レシピ写真 %>
   <div class="recipe-header">
     <h2 class="name">
         <%= @recipe.title %>
     </h2>
     <div class="recipe-owener">
-      <%= @recipe.user.nickname %>
+      投稿者:<%= @recipe.user.nickname %>
     </div>
   </div>
+  <%# レシピ写真 %>
 
+  <%# レシピ中部 %>
   <div class="recipe-middle">
     <div class="recipe-photo">
       <%= image_tag @recipe.image, class: 'image' %>
     </div>
     <div class="recipe-middle-right">
+      <div class="recipe-detail">
+        <%= @recipe.detail %>
+      </div>
+      <div class="recipe-time-category">
+        <div class="recipe-time">
+          料理時間
+          <div class="recipe-time-value">
+            <%= @recipe.recipe_time.name %>
+          </div>
+        </div>
+        <div class="recipe-category">
+          category
+          <div class="recipe-category-value">
+            中華・イタリアン
+          </div>
+        </div>
+      </div>
+      <div class="option">
+        <div class="favorite-btn">
+          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+          <span>お気に入り 0</span>
+        </div>
+      </div>
+      <div>SNS連携　LINE Twitter</div>
     </div>
   </div>
+  <%# レシピ中部 %>
+
+  <%# レシピ下部 %>
+  <div class="recipe-bottom">
+    <div class="recipe-bottom-left">
+      <div class="recipe-bottom-left-title">材料一覧</div>
+      <div class=recipe-item-list>
+        <%= @recipe.item %>
+      </div>
+    </div>
+    <div class="recipe-bottom-right">
+      <div class="recipe-bottom-right-title">作り方</div>
+      <div class="recipe-infos">手順１
+        <div class="recipe-info-value">
+          <%= @recipe.recipe_info1 %>
+        </div>
+      </div>
+      <div class="recipe-infos">手順２
+        <div class="recipe-info-value">
+          <%= @recipe.recipe_info2 %>
+        </div>
+      </div>
+      <div class="recipe-infos">手順３
+        <div class="recipe-info-value">
+          <%= @recipe.recipe_info1 %>
+        </div>
+      </div>
+      <div class="recipe-infos">手順４
+        <div class="recipe-info-value">
+          <%= @recipe.recipe_info1 %>
+        </div>
+      </div>
+      <div class="recipe-infos">手順５
+        <div class="recipe-info-value">
+          <%= @recipe.recipe_info1 %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%# レシピ下部 %>
 </div>
 
 <%# レシピの概要 %>
 <div class="recipe-show">
-  <div class="recipe-box">
-    
-    
-
-    <div class="recipe-explain-box">
-      <span><%= @recipe.detail %></span>
-    </div>
-    
-    <div class="option">
-      <div class="favorite-btn">
-        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-    </div>
-  </div>
   <%# /レシピの概要 %>
 
   <div class="comment-box">
