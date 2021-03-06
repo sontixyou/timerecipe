@@ -1,0 +1,62 @@
+<%= render "shared/header" %>
+<div class="recipe-content">
+  <div class="recipe-header">
+    <h2 class="name">
+        <%= @recipe.title %>
+    </h2>
+    <div class="recipe-owener">
+      <%= @recipe.user.nickname %>
+    </div>
+  </div>
+
+  <div class="recipe-middle">
+    <div class="recipe-photo">
+      <%= image_tag @recipe.image, class: 'image' %>
+    </div>
+    <div class="recipe-middle-right">
+    </div>
+  </div>
+</div>
+
+<%# レシピの概要 %>
+<div class="recipe-show">
+  <div class="recipe-box">
+    
+    
+
+    <div class="recipe-explain-box">
+      <span><%= @recipe.detail %></span>
+    </div>
+    
+    <div class="option">
+      <div class="favorite-btn">
+        <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+    </div>
+  </div>
+  <%# /レシピの概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+  
+</div>
+<% if user_signed_in? &&  @recipe.user.id == current_user.id %>
+  <%= link_to "レシピの編集",  method: :get, class: "recipe-red-btn" %>
+  <p class="or-text">or</p>
+  <%= link_to "レシピ削除",  method: :delete, class:"recipe-destroy" %>
+<% end %>
+
+
