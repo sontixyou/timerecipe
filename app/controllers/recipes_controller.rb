@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_recipe, only: [:show]
+  before_action :set_recipe, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit, :update]
   # before_action :authenticate_user!, except: [:index, :show, :search]
   # before_action :set_item, only: [:edit, :show, :update, :destroy]
   # before_action :move_to_index, only: [:edit, :destroy, :update]
@@ -25,6 +26,16 @@ class RecipesController < ApplicationController
   def show
   end
   
+  def edit
+  end
+
+  def update
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe.id)
+    else
+      render :edit
+    end
+  end
   private
 
   def recipe_params
@@ -36,11 +47,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  # def move_to_index
-  #   if current_user.id == @recipe.user_id
-  #     redirect_to root_path
-  #   end
-  # end
+  def move_to_index
+    if current_user.id != @recipe.user_id
+      redirect_to root_path
+    end
+  end
 
 end
 
