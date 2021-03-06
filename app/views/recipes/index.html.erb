@@ -2,12 +2,12 @@
 <%= render "shared/submenu" %>
  
 <div class="grid">
-  <div class="item">
-    <div class="item-photo"></div>
-      <p class="recipe-title">料理名</p>
-      <p class="recipe-owner">投稿者</p>
-  </div>
-  
-</div>
-
+  <% unless @recipes.count == 0 %>
+    <% @recipes.each do |recipe| %>
+      <%= render partial: "recipe", locals: {recipe: recipe} %>
+    <% end %>
+  <% else %>
+    <h3 class="recipe-nothing">レシピがありません</h3>    
+  <% end %>
+</div>  
 <%= render "shared/footer" %>

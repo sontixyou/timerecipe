@@ -1,10 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_recipe, only: [:show]
   # before_action :authenticate_user!, except: [:index, :show, :search]
   # before_action :set_item, only: [:edit, :show, :update, :destroy]
   # before_action :move_to_index, only: [:edit, :destroy, :update]
 
   def index
+    @recipes = Recipe.all
   end
 
   def new
@@ -20,6 +22,9 @@ class RecipesController < ApplicationController
     end
   end
 
+  def show
+  end
+  
   private
 
   def recipe_params
@@ -27,9 +32,9 @@ class RecipesController < ApplicationController
                                  :recipe_info3, :recipe_info4, :recipe_info5, :recipe_time_id, :image).merge(user_id: current_user.id)
   end
 
-  # def set_recipe
-  #   @recipe = Recipe.find(params[:id])
-  # end
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   # def move_to_index
   #   if current_user.id == @recipe.user_id
