@@ -39,6 +39,14 @@
           <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
           <span>お気に入り 0</span>
         </div>
+        <% if user_signed_in? &&  @recipe.user.id == current_user.id %>
+          <div class="edit-btn">
+            <%= link_to "レシピの編集", edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
+          </div>
+          <div class="delete-btn">
+            <%= link_to "レシピ削除",  method: :delete, class:"recipe-destroy" %>
+          </div>
+        <% end %>
       </div>
       <div>SNS連携　LINE Twitter</div>
     </div>
@@ -105,10 +113,6 @@
   </div>
   
 </div>
-<% if user_signed_in? &&  @recipe.user.id == current_user.id %>
-  <%= link_to "レシピの編集",  method: :get, class: "recipe-red-btn" %>
-  <p class="or-text">or</p>
-  <%= link_to "レシピ削除",  method: :delete, class:"recipe-destroy" %>
-<% end %>
+
 
 
