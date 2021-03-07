@@ -28,6 +28,7 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :title, class:"recipe-text", id:"recipe-title", placeholder:"料理名（必須 40文字まで)", maxlength:"40" %>
+      残り<span id="counter-title" class="float-right">40</span>文字
       <%# /レシピ名 %>
       <%# レシピ説明 %>
       <div class="recipe-explain">
@@ -35,7 +36,8 @@
           料理の説明
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :detail, class:"recipe-text", id:"recipe-info1", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+        <%= f.text_area :detail, class:"recipe-text", id:"recipe-detail", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+        残り<span id="counter-detail" class="float-right">140</span>文字
       </div>
       <%# /レシピ説明 %>
     </div>
@@ -55,6 +57,7 @@
           <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :recipe_info1, class:"recipe-text", id:"recipe-info1", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      残り<span id="counter-info1" class="float-right">140</span>文字
     </div>
     <div class="items-detail">
       <div class="weight-bold-text">
@@ -62,6 +65,7 @@
           <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :recipe_info2, class:"recipe-text", id:"recipe-info2", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      残り<span id="counter-info2" class="float-right">140</span>文字
     </div>
     <div class="items-detail">
       <div class="weight-bold-text">
@@ -69,24 +73,27 @@
           <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :recipe_info3, class:"recipe-text", id:"recipe-info3", placeholder:"料理の説明（必須 140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      残り<span id="counter-info3" class="float-right">140</span>文字
     </div>
     <div class="items-detail">
       <div class="weight-bold-text">
           料理の手順4
       </div>
       <%= f.text_area :recipe_info4, class:"recipe-text", id:"recipe-info4", placeholder:"料理の説明（140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      残り<span id="counter-info4" class="float-right">140</span>文字
     </div>
     <div class="items-detail">
       <div class="weight-bold-text">
           料理の手順5
       </div>
       <%= f.text_area :recipe_info5, class:"recipe-text", id:"recipe-info5", placeholder:"料理の説明（140文字まで）" ,rows:"7" ,maxlength:"140" %>
+      残り<span id="counter-info5" class="float-right">140</span>文字
     </div>
     
     
     <%# /レシピの詳細 %>
 
-    <%# 料理時間について %>
+    <%# 料理時間&カテゴリについて %>
     <div class="items-detail">
       <div class="form">
         <div class="weight-bold-text">
@@ -95,8 +102,15 @@
         </div>
         <%= f.collection_select(:recipe_time_id, RecipeTime.all, :id, :name, {}, {class:"select-box", id:"recipe-time-category"}) %>
       </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          料理カテゴリ
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"recipe-time-category"}) %>
+      </div>
     </div>
-    <%# /料理時間について %>
+    <%# /料理時間&カテゴリについて %>
 
     
 
