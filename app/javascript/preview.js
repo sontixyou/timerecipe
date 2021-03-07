@@ -1,20 +1,27 @@
 if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
   document.addEventListener('DOMContentLoaded', function(){
     const ImageList = document.getElementById('image-list');
-    document.getElementById('user-image').addEventListener('change', function(e){
-      const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file);
-      console.log(file);
-      // 画像を表示するためのdiv要素を生成
+
+    const createImageHTML = (blob) => {
+      let imageSize = 200;
       const imageElement = document.createElement('div');
-  
-      // 表示する画像を生成
       const blobImage = document.createElement('img');
       blobImage.setAttribute('src', blob);
-  
-    // 生成したHTMLの要素をブラウザに表示させる
+      blobImage.setAttribute('width', imageSize);
+      blobImage.setAttribute('height', imageSize);
       imageElement.appendChild(blobImage);
       ImageList.appendChild(imageElement);
+    }
+    document.getElementById('recipe-image').addEventListener('change', function(e){
+      
+      const imageContent = document.querySelector('img');
+      if (imageContent) {
+        imageContent.remove();
+      }
+      const file = e.target.files[0];
+      const blob = window.URL.createObjectURL(file);
+      createImageHTML(blob);
     });
+
   });
 }
