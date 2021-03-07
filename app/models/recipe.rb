@@ -2,7 +2,8 @@ class Recipe < ApplicationRecord
   ## Association
   has_one_attached :image
   belongs_to :user
-  has_many :comments
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   ##ActiveHash
   extend ActiveHash::Associations::ActiveRecordExtensions

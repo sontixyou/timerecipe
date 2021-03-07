@@ -35,10 +35,23 @@
         </div>
       </div>
       <div class="option">
-        <div class="favorite-btn">
-          <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <% if current_user.favorite_by?(@recipe.id) %>
+           <%= link_to recipe_destroy_favorite_path(@recipe), method: :delete, class:"favorite-btn" do %>
+           dislike
+            <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> %>
+          <% end %>
+        <% else %>
+          
+          <%= link_to recipe_create_favorite_path(@recipe), method: :post, class:"favorite-btn" do %>
+          like
+            <%# <%= image_tag "star.png" ,class:"favorite-star-icon" ,width:"20",height:"20"%> %>
+          <% end %> 
+        <% end %>  
+
           <span>お気に入り 0</span>
         </div>
+
+
         <% if user_signed_in? &&  @recipe.user.id == current_user.id %>
           <div class="edit-btn">
             <%= link_to "レシピの編集", edit_recipe_path(@recipe.id), method: :get, class: "recipe-red-btn" %>
