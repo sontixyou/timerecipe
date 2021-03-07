@@ -36,4 +36,12 @@ class Recipe < ApplicationRecord
   def image_attached
     errors.add(:image, :presence) if image.blank?
   end
+
+  def self.search(search)
+    if search != ""
+      Recipe.where('title LIKE(?)', "%#{search}%")
+    else
+      Recipe.all
+    end
+  end  
 end

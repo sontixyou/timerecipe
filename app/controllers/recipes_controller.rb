@@ -1,8 +1,7 @@
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
-  # before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
     @recipes = Recipe.all
@@ -40,6 +39,11 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     redirect_to root_path
+  end
+
+  def search
+    @recipes = Recipe.search(params[:keyword])
+    render :index
   end
   private
 
