@@ -28,9 +28,12 @@ class User < ApplicationRecord
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
     # 無ければemailでユーザー検索して取得orビルド(保存はしない)
+    image_url = auth.info.image
+    
     user = User.where(email: auth.info.email).first_or_initialize(
       nickname: auth.info.name,
-      email: auth.info.email
+      email: auth.info.email,
+      image: URI.parse(image_url)
     )
     if user.persisted?
       sns.user = user

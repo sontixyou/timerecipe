@@ -43,5 +43,8 @@ class Recipe < ApplicationRecord
     else
       Recipe.all
     end
-  end  
+  end
+  def down
+    remove_reference :recipes, :user, index: true
+  end
 end
