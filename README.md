@@ -11,8 +11,9 @@
 
 ### Association
 
-- has_many :recipes
-- has_many :comments
+- has_many :recipes, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :favorites, dependent: :destroy
 
 ## recipes テーブル
 
@@ -34,7 +35,8 @@
 ### Association
 
 - belongs_to :user
-- has_many :comments
+- has_many :comments, dependent: :destroy
+- has_many :favorites, dependent: :destroy
 
 ## comments テーブル
 
@@ -51,3 +53,16 @@
 - belongs_to :user
 - belongs_to :recipes
 
+## favorites テーブル
+
+| Column              | Type       | Options                          |
+| ------------------- | ---------- | -------------------------------- |
+| user                | references | null: false, , foreign_key: true |
+| recipe              | references | null: false, , foreign_key: true |
+
+
+
+### Association
+
+- belongs_to :user
+- belongs_to :recipe

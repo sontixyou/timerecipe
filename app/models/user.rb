@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   ## Association
-  has_many :recipes
-  has_many :comments
-  has_many :sns_credentials
+  has_many :recipes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :sns_credentials, dependent: :destroy
   # has_one_attached :image
   
   ##Validation
@@ -41,7 +42,10 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }
   end
-
+  
+  def favorite_by?(recipe_id)
+    favorites.where(recipe_id: recipe_id).exists?
+  end 
   # def image_attached
   #   binding.pry
   #   errors.add(:image, :presence) if image.blank?
